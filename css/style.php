@@ -15,7 +15,7 @@
     }
 
     span {
-        background: linear-gradient(to right, rgb(0, 0, 0), rgb(181, 201, 3));
+        background: linear-gradient(to right, rgb(19, 18, 18), rgb(181, 201, 3));
         background-clip: text;
         color: transparent;
     }
@@ -24,6 +24,24 @@
         min-height: 100vh;
         padding: 5% 15%;
     }
+
+    .navbar-custom {
+        background-color: black !important;
+        color: gold;
+    }
+
+    .navbar-custom .nav-link {
+        color: white;
+    }
+
+    .navbar-custom .nav-link:hover {
+        color: gold;
+    }
+
+    .navbar-custom span {
+        font-size: 20px;
+    }
+
 
     #home {
         background-image: url(img/bg3.jpeg);
@@ -74,7 +92,7 @@
     }
 
     #products {
-        background-color: #111;
+        background-color: #000;
         padding: 60px 20px;
         color: linear-gradient(to right, rgb(0, 0, 0), rgb(181, 201, 3));
     }
@@ -135,7 +153,7 @@
     }
 
     .custom-button {
-        background-color: rgb(181, 201, 3);
+        background-color: rgb(150, 163, 31);
         color: black;
         border: none;
         padding: 10px 30px;
@@ -146,9 +164,9 @@
     }
 
     .custom-button:hover {
-        background-color: rgb(0, 0, 0);
+        background-color: rgb(27, 26, 26);
         transform: scale(1.05);
-        color: rgb(181, 201, 3);
+        color: gold;
     }
 
     .custom-button:active {
@@ -217,7 +235,8 @@
         justify-content: center;
         gap: 10em;
         bottom: 0;
-        background-color: rgb(12, 11, 11);
+        background-image: url(img/bgr.jpeg);
+        background-size: 100%;
         width: 100%;
         padding: 5em 15%;
     }
@@ -257,30 +276,31 @@
 
     .col-right .social-icons {
         display: flex;
-        align-items: baseline;
+        align-items: center;
         justify-content: left;
-        gap: 1em;
+        gap: 3em;
     }
 
     .col-right .social-icons i {
-        color: rgba(184, 209, 184, 0.836);
+        color: rgba(44, 23, 94, 0.84);
         font-size: 2em;
         transition: 0.2s ease-in-out;
         cursor: pointer;
     }
 
+
     .social-icons i:hover {
-        color: white;
+        color: gold;
     }
 
     .custom-button {
-        background-color: rgb(181, 201, 3);
+        background-color: gold;
         color: black;
         border: none;
         padding: 10px 30px;
         font-size: 16px;
         border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
+        transition: .3s ease, transform 0.2s ease;
     }
 </style>

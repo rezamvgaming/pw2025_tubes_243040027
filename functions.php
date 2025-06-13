@@ -21,9 +21,9 @@ function query($query)
 
 function tambah($data)
 {
+
     $conn = koneksi();
 
-    // Sanitasi input agar lebih aman dari XSS atau input berbahaya
     $Merek = htmlspecialchars($data["Merek"]);
     $type = htmlspecialchars($data["type"]);
     $warna = htmlspecialchars($data["warna"]);
@@ -31,7 +31,6 @@ function tambah($data)
     $desain = htmlspecialchars($data["desain"]);
     $harga = htmlspecialchars($data["harga"]);
 
-    // Query insert data
     $query = "INSERT INTO car 
               (Merek, type, warna, mesin, desain, harga) 
               VALUES 
@@ -39,9 +38,37 @@ function tambah($data)
 
     mysqli_query($conn, $query);
 
-    // Kembalikan jumlah baris yang terpengaruh (untuk cek berhasil/gagal)
+    return mysqli_affected_rows($conn);
+
+    $namaFile = $_FILES['gambar']['name'];
+    $tmpName = $_FILES['gambar']['tmp_name'];
+    $error = $_FILES['gambar']['error'];
+
+    if ($error === 4) {
+        echo "<script>alert('Pilih gambar terlebih dahulu!');</script>";
+        return false;
+    }
+
+    $ekstensiValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiFile = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
+    if (!in_array($ekstensiFile, $ekstensiValid)) {
+        echo "<script>alert('File harus berformat JPG, JPEG, atau PNG!');</script>";
+        return false;
+    }
+
+    $namaBaru = uniqid() . '.' . $ekstensiFile;
+    move_uploaded_file($tmpName, 'img/' . $namaBaru);
+
+    $query = "INSERT INTO car 
+                (Merek, type, warna, mesin, desain, harga, gambar) 
+              VALUES 
+                ('$merek', '$type', '$warna', '$mesin', '$desain', '$harga', '$namaBaru')";
+
+    mysqli_query($conn, $query);
+
     return mysqli_affected_rows($conn);
 }
+
 
 function hapus($id)
 {

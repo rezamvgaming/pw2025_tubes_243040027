@@ -1,5 +1,4 @@
 <style>
-    /* Background and center layout */
     body {
         margin: 0;
         padding: 0;
@@ -13,7 +12,6 @@
         background-image: url(img/bg2.jpeg);
     }
 
-    /* Login container */
     .login-container {
         background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(10px);
@@ -25,11 +23,10 @@
         border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    /* Form styling */
     .login-form {
         display: flex;
         flex-direction: column;
-        color: black;
+        color: grey;
     }
 
     .login-form h2 {
